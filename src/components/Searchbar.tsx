@@ -28,14 +28,24 @@ const Searchbar = () => {
       <button onClick={onClickBtnHandler}>Buscar</button>
       {pokeAtual ? (
         <>
-          <div>Nome {pokeAtual.name}</div>
+          <div>
+            Nome
+            <br />
+            <img src={pokeAtual.sprites.front_default} alt="Pokemon" />
+            {pokeAtual.name}
+          </div>
           <br />
           <div>
             Tipo
             <br />
             {pokeAtual.types.map((i) => {
               console.log("pokeAtual: ", pokeAtual.types[0].type.name);
-              return i.type.name;
+              return (
+                <>
+                  {i.type.name}
+                  <br />
+                </>
+              );
             })}
           </div>
         </>
