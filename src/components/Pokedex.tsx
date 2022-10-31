@@ -1,5 +1,5 @@
-/* eslint-disable react/jsx-no-undef */
-import Pokemon from "./Pokemon/Pokemon";
+// import Pokemon from "./Pokemon/Pokemon";
+import { Pokemon } from "./Pokemon";
 import { poke } from "./Pokemon/Pokemon.types";
 
 const Pokedex = (props: { pokemons: any; isLoading: any }) => {
@@ -16,12 +16,7 @@ const Pokedex = (props: { pokemons: any; isLoading: any }) => {
         <div className="pokedex-grid">
           {pokemons &&
             pokemons.map((pokemon: poke, index: number) => {
-              return (
-                <div>
-                  {pokemon.name}
-                  <Pokemon pokeName={pokemon.name}></Pokemon>
-                </div>
-              );
+              return <Pokemon key={index} pokeName={pokemon} />;
             })}
         </div>
       )}

@@ -1,9 +1,13 @@
 import React from "react";
+import { searchPokemon } from "../../api";
 
-const Pokemon = (pokeName: any) => {
-  console.log("pokeName: ", pokeName);
-  // const pokemon = await searchPokemon(nome);
-  // return <img src={pokemon.sprites.front_default} alt="" />;
-  return pokeName ? <div>{pokeName.name}</div> : <>teste</>;
+const Pokemon = (props: { pokeName: any }) => {
+  console.log("props: ", props);
+  const { pokeName } = props;
+  return (
+    <>
+      <div>{pokeName.name}</div>
+    </>
+  );
 };
 export default Pokemon;
