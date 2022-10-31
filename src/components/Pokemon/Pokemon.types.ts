@@ -1,4 +1,5 @@
 export interface poke {
+  url: string | undefined;
   sprites: {
     back_default: string;
     back_female: string;

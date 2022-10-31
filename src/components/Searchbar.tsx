@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { searchPokemon } from "../api";
-import { poke } from "./pokemon";
+import { poke } from "./Pokemon/Pokemon.types";
 
 const Searchbar = () => {
   const [search, setSearch] = useState("charizard");
@@ -12,7 +12,7 @@ const Searchbar = () => {
   const onClickBtnHandler = () => {
     onSearchHandler(search);
   };
-  const onSearchHandler = async (pokemon: any) => {
+  const onSearchHandler = async (pokemon: string) => {
     const result = await searchPokemon(pokemon);
     setPokeAtual(result);
     console.log("pokeAtual: ", pokeAtual?.name);
@@ -40,12 +40,10 @@ const Searchbar = () => {
             <br />
             {pokeAtual.types.map((i) => {
               console.log("pokeAtual: ", pokeAtual.types[0].type.name);
-              return (
-                <>
-                  {i.type.name}
-                  <br />
-                </>
-              );
+              // if (pokeAtual.types.length > 1) {
+              //   return <>{i.type.name} </>;
+              // }
+              return <>{i.type.name} </>;
             })}
           </div>
         </>
