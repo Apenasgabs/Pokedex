@@ -48,7 +48,7 @@ const Searchbar = () => {
           </div>
         </>
       ) : (
-        "nada"
+        ""
       )}
     </div>
   );
