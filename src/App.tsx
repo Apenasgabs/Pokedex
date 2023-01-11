@@ -1,8 +1,11 @@
+import { useEffect, useState } from "react";
 import { getPokemon } from "./api";
 import "./App.css";
+import Pokedex from "./components/Pokedex";
+import { PokeList } from "./components/Pokedex.types";
 function App() {
   const [isLoading, setIsloading] = useState(false);
-  const [pokemons, setPokemons] = useState<pokeList>();
+  const [pokemons, setPokemons] = useState<PokeList>();
   console.log("loading: ", isLoading);
   const fetchPokemons = async () => {
     try {
