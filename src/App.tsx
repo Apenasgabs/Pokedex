@@ -1,16 +1,11 @@
+import { useEffect, useState } from "react";
 import { getPokemon } from "./api";
 import "./App.css";
-import Navbar from "./components/Navbar";
 import Pokedex from "./components/Pokedex";
-import Searchbar from "./components/Searchbar";
-import { useState, useEffect } from "react";
-interface pokeList {
-  count: number;
-  results: { name: string; url: string }[];
-}
+import { PokeList } from "./components/Pokedex.types";
 function App() {
   const [isLoading, setIsloading] = useState(false);
-  const [pokemons, setPokemons] = useState<pokeList>();
+  const [pokemons, setPokemons] = useState<PokeList>();
   console.log("loading: ", isLoading);
   const fetchPokemons = async () => {
     try {
@@ -30,8 +25,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Navbar />
-        <Searchbar />
         <Pokedex pokemons={pokemons?.results} isLoading={isLoading} />
       </header>
     </div>

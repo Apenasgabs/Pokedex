@@ -1,27 +1,21 @@
-// import Pokemon from "./Pokemon/Pokemon";
-import { Pokemon } from "./Pokemon";
-import { poke } from "./Pokemon/Pokemon.types";
+import { Result } from "./Pokedex.types";
 
-const Pokedex = (props: { pokemons: any; isLoading: any }) => {
+const Pokedex = (props: { pokemons: Result[] | undefined; isLoading: any }) => {
   const { pokemons, isLoading } = props;
-  return (
-    <>
-      {" "}
-      <div className="pokedex-header">
-        <h1>Pokedex</h1>
-      </div>
-      {isLoading ? (
-        <div>Calma ai que jaja te mostro</div>
-      ) : (
-        <div className="pokedex-grid">
-          {pokemons &&
-            pokemons.map((pokemon: poke, index: number) => {
-              return <Pokemon key={index} pokeName={pokemon} />;
-            })}
-        </div>
-      )}
-    </>
-  );
+  console.log("isLoading: ", isLoading);
+  console.log("pokemons: ", pokemons);
+  const pokeList = pokemons?.map((pokemon, idx) => {
+    return (
+      <>
+        <div key={idx}>{pokemon.name}</div>
+      </>
+    );
+  });
+  const noPoke = () => {
+    return <p>Ainda nao ha nada por aqui </p>;
+  };
+  const resultado = pokemons ? pokeList : noPoke;
+  return <>{resultado}</>;
 };
 
 export default Pokedex;
